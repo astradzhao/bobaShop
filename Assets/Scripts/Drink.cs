@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Drink : MonoBehaviour
 {
+    void Awake() {
+        DontDestroyOnLoad(this.gameObject);
+    }
     #region Instance Variables
     private string teaBase;
     private List<string> ingredients;
