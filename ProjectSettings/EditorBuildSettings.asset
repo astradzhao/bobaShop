@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/MixingScene.unity
+    path: Assets/Scenes/TeaBaseScene.unity
     guid: d2bcfe56ebe94824593ac5ad6a21a319
   - enabled: 1
     path: Assets/Scenes/OrderScene.unity

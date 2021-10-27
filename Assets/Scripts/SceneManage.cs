@@ -10,8 +10,12 @@ public class SceneManage : MonoBehaviour
         SceneManager.LoadScene("OrderScene");
     }
 
-    public void MixingScene()
+    public void BasesScene()
     {
-        SceneManager.LoadScene("MixingScene");
+        SceneManager.LoadScene("TeaBaseScene");
+    }
+
+    public void IngredientsScene() {
+        SceneManager.LoadScene("IngredientsScene");
     }
 }

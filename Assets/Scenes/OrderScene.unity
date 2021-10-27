@@ -1096,7 +1096,7 @@ GameObject:
   - component: {fileID: 1374284353}
   - component: {fileID: 1374284352}
   m_Layer: 5
-  m_Name: MixingSceneButton
+  m_Name: BaseScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1168,7 +1168,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1761929757}
         m_TargetAssemblyTypeName: SceneManage, Assembly-CSharp
-        m_MethodName: MixingScene
+        m_MethodName: BasesScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1463,7 +1463,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Mixing
+  m_Text: Bases
 --- !u!222 &1638998711
 CanvasRenderer:
   m_ObjectHideFlags: 0

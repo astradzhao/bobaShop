@@ -17,4 +17,22 @@ public class TempDisplayManager : MonoBehaviour
         }
     }
 
+    public void AddIngredientText(string b) {
+        if (ingredientsTxt.text == "") {
+            ingredientsTxt.text = b;
+        }
+        else {
+            ingredientsTxt.text += ", " + b;
+        }
+    }
+
+    public void AddToppingText(string b) {
+        if (toppingsTxt.text == "") {
+            toppingsTxt.text = b;
+        }
+        else {
+            toppingsTxt.text += ", " + b;
+        }
+    }
+
 }
