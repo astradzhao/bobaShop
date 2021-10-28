@@ -12,12 +12,17 @@ public class TempDisplayManager : MonoBehaviour
     #endregion
 
     public void SetTeaBaseText(string b) {
-        if (teaBaseTxt.text == "") {
+        if (teaBaseTxt != null) {
+            if (teaBaseTxt.text == "") {
             teaBaseTxt.text = b;
+            }
         }
     }
 
     public void AddIngredientText(string b) {
+        if (ingredientsTxt == null) {
+            return;
+        }
         if (ingredientsTxt.text == "") {
             ingredientsTxt.text = b;
         }
@@ -27,6 +32,9 @@ public class TempDisplayManager : MonoBehaviour
     }
 
     public void AddToppingText(string b) {
+        if (toppingsTxt == null) {
+            return;
+        }
         if (toppingsTxt.text == "") {
             toppingsTxt.text = b;
         }

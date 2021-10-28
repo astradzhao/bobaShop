@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Drink : MonoBehaviour
+public class Drink : Object
 {
     #region Instance Variables
     private string teaBase;
