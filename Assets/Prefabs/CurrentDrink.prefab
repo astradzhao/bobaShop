@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2279862758666631365}
   - component: {fileID: 1061864747079964600}
   - component: {fileID: 5747018906263182824}
-  - component: {fileID: 2837064630091233537}
+  - component: {fileID: 2426046771383029122}
   m_Layer: 5
   m_Name: CurrentDrink
   m_TagString: Untagged
@@ -117,7 +117,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -551}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 432.272, y: 600.6235}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1061864747079964600
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2837064630091233537
+--- !u!114 &2426046771383029122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498152683440989783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fcce3f3e1632a14c82f74db6c24e1a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 41d5aa8d4f32b5540a6693334e9f6092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3574511515404393469
