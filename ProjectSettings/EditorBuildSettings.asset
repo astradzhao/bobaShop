@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OrderScene.unity
     guid: e1708445b929ed64aa536f579633eefd
+  - enabled: 1
+    path: Assets/Scenes/IngredientsScene.unity
+    guid: 83897fdede689ca47bc4f03dac735b68
   m_configObjects: {}
