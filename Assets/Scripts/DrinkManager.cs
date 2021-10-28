@@ -54,7 +54,11 @@ public class DrinkManager : MonoBehaviour
             DrinkComponent d = myDrink.GetComponent<DrinkComponent>();
             canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
             d.drink = sceneD;
-            currObject = Instantiate(myDrink, new Vector3(1920, 580, 0), Quaternion.identity);
+            RectTransform r = canvas.GetComponent<RectTransform>();
+            float x = r.position.x;
+            float y = r.position.y;
+            float h = r.rect.height;
+            currObject = Instantiate(myDrink, new Vector3(x, y - h/3, 0), Quaternion.identity);
             currObject.transform.SetParent(canvas.transform);
             reloadText(d.drink);
         }
