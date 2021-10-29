@@ -439,12 +439,12 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: OrderScene
+          m_StringArgument: SealingScene
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1367011316}
         m_TargetAssemblyTypeName: SceneManage, Assembly-CSharp
-        m_MethodName: OrderScene
+        m_MethodName: SealingScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -778,7 +778,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Move to Order
+  m_Text: Move to Sealing
 --- !u!222 &545721395
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1349,6 +1349,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1701434849}
     m_Modifications:
+    - target: {fileID: 1206882508473475792, guid: f11e1c1991028f14e99127d0ef2bd3c4, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206882508473475792, guid: f11e1c1991028f14e99127d0ef2bd3c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1367011316}
+    - target: {fileID: 1206882508473475792, guid: f11e1c1991028f14e99127d0ef2bd3c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SealingScene
+      objectReference: {fileID: 0}
     - target: {fileID: 1845198307531093396, guid: f11e1c1991028f14e99127d0ef2bd3c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

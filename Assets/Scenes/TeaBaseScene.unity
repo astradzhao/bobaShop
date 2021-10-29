@@ -902,7 +902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380ebed2822c03a4bb36f24f0040a75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orderManager: {fileID: 0}
 --- !u!1001 &1081334100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1126,7 +1125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380ebed2822c03a4bb36f24f0040a75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orderManager: {fileID: 0}
 --- !u!4 &1442898680
 Transform:
   m_ObjectHideFlags: 0
@@ -1881,6 +1879,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 441921076}
     m_Modifications:
+    - target: {fileID: 1206882508473475792, guid: f11e1c1991028f14e99127d0ef2bd3c4, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206882508473475792, guid: f11e1c1991028f14e99127d0ef2bd3c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1377259652}
+    - target: {fileID: 1206882508473475792, guid: f11e1c1991028f14e99127d0ef2bd3c4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SealingScene
+      objectReference: {fileID: 0}
     - target: {fileID: 1845198307531093396, guid: f11e1c1991028f14e99127d0ef2bd3c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

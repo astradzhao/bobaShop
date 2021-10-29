@@ -38,9 +38,13 @@ public class GameManager : MonoBehaviour
             DrinkManager dm = drinkManager.GetComponent<DrinkManager>();
             dm.BaseToIng();
         }
+        else if (s == "SealingScene") {
+            DrinkManager dm = drinkManager.GetComponent<DrinkManager>();
+            dm.IngToSeal();
+        }
         else if (s == "OrderScene") {
             DrinkManager dm = drinkManager.GetComponent<DrinkManager>();
-            dm.IngToOrder();
+            dm.SealToOrder();
         }
     }
 
@@ -50,9 +54,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region Order Functions
-
-
+    #region Sealing Functions
 
     #endregion
 }

@@ -207,13 +207,23 @@ public class DrinkManager : MonoBehaviour
         drinks["IngredientsScene"].Add(d);
     }
 
-    public void IngToOrder() {
+    public void IngToSeal() {
         List<Drink> ingDrinks = drinks["IngredientsScene"];
         if (ingDrinks.Count <= 0) {
             return;
         }
         Drink d = ingDrinks[0]; 
         ingDrinks.RemoveAt(0);
+        drinks["SealingScene"].Add(d);
+    }
+
+    public void SealToOrder() {
+        List<Drink> sealDrinks = drinks["SealingScene"];
+        if (sealDrinks.Count <= 0) {
+            return;
+        }
+        Drink d = sealDrinks[0]; 
+        sealDrinks.RemoveAt(0);
         drinks["OrderScene"].Add(d);
     }
     #endregion

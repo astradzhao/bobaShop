@@ -5,7 +5,7 @@ using UnityEngine;
 public class Order
 {
     #region Private Class Variables
-    private static List<string> allTeaBases = new List<string>{"Thai", "Green", "Black", "Rose"};
+    private static List<string> allTeaBases = new List<string>{"Oolong", "Green", "Black", "Rose"};
     private static List<string> allIngredients = new List<string>{"Mango", "Taro", "Strawberry", "Matcha"};
     private static List<string> allToppings = new List<string>{"Lychee Jelly", "Tapioca Pearls", "Strawberry Stars"};
     #endregion
