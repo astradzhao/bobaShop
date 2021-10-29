@@ -29,10 +29,9 @@ public class InputManager : MonoBehaviour
     }
 
     void Update() {
-        takeOrderBtn.onClick.AddListener(DoSomething);
     }
     
-	void DoSomething () {
+	public void DoSomething () {
         if (currOrderSprite == orderAlertSprite) {
             DisplayOrder();
             takeOrderBtn.image.sprite = orderTakingSprite;
@@ -45,9 +44,8 @@ public class InputManager : MonoBehaviour
 	}
 
 	void DisplayOrder() {
-		Order newOrder = new Order();
+		Order newOrder = new Order(orderManagerScript.totalOrderCount);
         orderManagerScript.AddOrder(newOrder);
-        SetOrderText(newOrder);
         //takeOrderBtn.
 	}
 

@@ -37,7 +37,9 @@ public class DrinkManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         newDrink();
-        reloadObject();
+        if (scene.name != "OrderScene") {
+            reloadObject();
+        }
     }
 
     private void OnDisable() {
@@ -61,10 +63,10 @@ public class DrinkManager : MonoBehaviour
             Vector2 res = canvasScale.referenceResolution;
             float h = res.y;
             float w = res.x;
-            currObject = Instantiate(myDrink, new Vector3(x, y - 3/2 * h, 0), Quaternion.identity);
+            currObject = Instantiate(myDrink, new Vector3(x - 2 * w / 5, y - 9 * h / 8, 0), Quaternion.identity);
             RectTransform dR = currObject.GetComponent<RectTransform>();
-            dR.sizeDelta = new Vector3(w / 2, h * 5/4, 0);
-            currObject.transform.parent = canvas.transform;
+            dR.sizeDelta = new Vector3(w / 2, 5 * h / 4, 0);
+            currObject.transform.SetParent(canvas.transform);
             reloadText(d.drink);
         }
     }
@@ -102,8 +104,10 @@ public class DrinkManager : MonoBehaviour
     public void addIngredient(string i) {
         if (myDrink != null) {
             DrinkComponent d = myDrink.GetComponent<DrinkComponent>();
-            d.drink.addIngredient(i);
-            AddIngredientText(i, d.drink);
+            if (d != null) {
+                d.drink.addIngredient(i);
+                AddIngredientText(i, d.drink);
+            }
         }
         else {
             AddIngredientText(i, null);
@@ -113,8 +117,10 @@ public class DrinkManager : MonoBehaviour
     public void addToppings(string t) {
         if (myDrink != null) {
             DrinkComponent d = myDrink.GetComponent<DrinkComponent>();
-            d.drink.addToppings(t);
-            AddToppingText(t, d.drink);
+            if (d != null) {
+                d.drink.addToppings(t);
+                AddToppingText(t, d.drink);
+            }
         }
         else {
             AddToppingText(t, null);
@@ -139,7 +145,11 @@ public class DrinkManager : MonoBehaviour
     }
 
     public void AddIngredientText(string b, Drink d) {
-        Text ingredientsTxt = GameObject.Find("IngredientsText").GetComponent<Text>();
+        GameObject ing = GameObject.Find("IngredientsText");
+        if (ing == null) {
+            return;
+        }
+        Text ingredientsTxt = ing.GetComponent<Text>();
         if (ingredientsTxt == null) {
             return;
         }
@@ -152,7 +162,11 @@ public class DrinkManager : MonoBehaviour
     }
 
     public void AddToppingText(string b, Drink d) {
-        Text toppingsTxt = GameObject.Find("ToppingsText").GetComponent<Text>();
+        GameObject top = GameObject.Find("ToppingsText");
+        if (top == null) {
+            return;
+        }
+        Text toppingsTxt = top.GetComponent<Text>();
         if (toppingsTxt == null) {
             return;
         }
@@ -164,6 +178,25 @@ public class DrinkManager : MonoBehaviour
         }
     }
 
+    public void Trash() {
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (drinks[sceneName].Count >= 1) {
+            drinks[sceneName].RemoveAt(0);
+        }
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
+    }
+
+    public void RemoveFromOrder(Drink d) {
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName != "OrderScene") {
+            return;
+        }
+        drinks[sceneName].Remove(d);
+    }
+
+    
+    #region Moving Drinks
     public void BaseToIng() {
         List<Drink> baseDrinks = drinks["TeaBaseScene"];
         if (baseDrinks.Count <= 0) {
@@ -174,22 +207,14 @@ public class DrinkManager : MonoBehaviour
         drinks["IngredientsScene"].Add(d);
     }
 
-    public void Trash() {
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (drinks[sceneName].Count >= 1) {
-            drinks[sceneName].RemoveAt(0);
+    public void IngToOrder() {
+        List<Drink> ingDrinks = drinks["IngredientsScene"];
+        if (ingDrinks.Count <= 0) {
+            return;
         }
-        Scene scene = SceneManager.GetActiveScene(); 
-        SceneManager.LoadScene(scene.name);
+        Drink d = ingDrinks[0]; 
+        ingDrinks.RemoveAt(0);
+        drinks["OrderScene"].Add(d);
     }
-
-
-    public static List<Drink> GetDrinkList(string SceneName) {
-        List<Drink> drinkList = new List<Drink>();
-        for (int i = 0; i < drinks[SceneName].Count; i++) {
-            drinkList.Add(drinks[SceneName][i]);
-        }
-        return drinkList;
-    }
-
+    #endregion
 }
