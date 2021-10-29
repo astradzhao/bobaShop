@@ -7,20 +7,48 @@ public class InputManager : MonoBehaviour
 {
     #region Public Variables
     public Button takeOrderBtn;
+    public GameObject orderManager;
+    public Sprite orderAlertSprite;
+    public Sprite orderTakingSprite;
+    public Sprite orderDoneSprite;
     public Text orderNumTxt;
     public Text teaBaseTxt;
     public Text ingredientsTxt;
     public Text toppingsTxt;
     #endregion
 
+    #region Private Variables
+    private Sprite currOrderSprite;
+    private OrderManager orderManagerScript;
+    #endregion
+
+    void Start() {
+        currOrderSprite = takeOrderBtn.image.sprite;
+        orderManager = GameObject.Find("OrderManager");
+        orderManagerScript = orderManager.GetComponent<OrderManager>(); 
+    }
+
+    void Update() {
+        takeOrderBtn.onClick.AddListener(DoSomething);
+    }
     
-	void Start () {
-		takeOrderBtn.onClick.AddListener(DisplayOrder);
+	void DoSomething () {
+        if (currOrderSprite == orderAlertSprite) {
+            DisplayOrder();
+            takeOrderBtn.image.sprite = orderTakingSprite;
+        } else if (currOrderSprite == orderDoneSprite) {
+            print("Order Complete!");
+            takeOrderBtn.image.sprite = orderAlertSprite;
+        }
+        currOrderSprite = takeOrderBtn.image.sprite;
+
 	}
 
 	void DisplayOrder() {
 		Order newOrder = new Order();
+        orderManagerScript.AddOrder(newOrder);
         SetOrderText(newOrder);
+        //takeOrderBtn.
 	}
 
     void SetOrderText(Order order) {

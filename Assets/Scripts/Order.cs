@@ -74,4 +74,35 @@ public class Order : Object
         return this.toppings;
     }
     #endregion
+
+    public bool equalsDrink(Drink d) {
+        List<string> dIng =  d.getIngredients();
+        List<string> dTop = d.getToppings();
+        if (dIng.Count != this.ingredients.Count) {
+            return false;
+        }
+        if (dTop.Count != this.toppings.Count) {
+            return false;
+        }
+        if (this.teaBase != d.getBase()) {
+            return false;
+        }
+        dIng.Sort();
+        dTop.Sort();
+        this.ingredients.Sort();
+        this.toppings.Sort();
+        for (int i = 0; i < dIng.Count; i++) {
+            if (dIng[i] != this.ingredients[i]) {
+                return false;
+            }
+        }
+        for (int i = 0; i < dTop.Count; i++) {
+            if (dTop[i] != this.toppings[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }

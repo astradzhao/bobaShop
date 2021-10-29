@@ -182,4 +182,14 @@ public class DrinkManager : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(scene.name);
     }
+
+
+    public static List<Drink> GetDrinkList(string SceneName) {
+        List<Drink> drinkList = new List<Drink>();
+        for (int i = 0; i < drinks[SceneName].Count; i++) {
+            drinkList.Add(drinks[SceneName][i]);
+        }
+        return drinkList;
+    }
+
 }
