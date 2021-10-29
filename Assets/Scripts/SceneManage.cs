@@ -18,4 +18,8 @@ public class SceneManage : MonoBehaviour
     public void IngredientsScene() {
         SceneManager.LoadScene("IngredientsScene");
     }
+
+    public void SealingScene() {
+        SceneManager.LoadScene("SealingScene");
+    }
 }

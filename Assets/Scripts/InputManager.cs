@@ -13,7 +13,7 @@ public class InputManager : MonoBehaviour
     public Text toppingsTxt;
     #endregion
 
-    
+
 	void Start () {
 		takeOrderBtn.onClick.AddListener(DisplayOrder);
 	}
@@ -39,5 +39,4 @@ public class InputManager : MonoBehaviour
             toppingsTxt.text += "- " + top + "\n" ;
         }
     }
-
 }
