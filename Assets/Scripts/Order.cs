@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Order
+public class Order : Object
 {
     #region Private Class Variables
     private static List<string> allTeaBases = new List<string>{"Thai", "Green", "Black", "Rose"};
-    private static List<string> allIngredients = new List<string>{"Mango", "Taro", "Strawberry", "Matcha"};
-    private static List<string> allToppings = new List<string>{"Lychee Jelly", "Tapioca Pearls", "Strawberry Stars"};
+    private static List<string> allIngredients = new List<string>{"Fruits", "Taro", "Ice", "Milk"};
+    private static List<string> allToppings = new List<string>{"Lychee jelly", "Tapioca pearls", "Strawberry stars"};
+    private static int allOrderNums;
     #endregion
 
     #region Private Instance Variables
@@ -21,13 +22,15 @@ public class Order
 
     #region Start Functions
     private void Start() {
+        allOrderNums = 0;
     }
     #endregion
 
     #region Instantiation
     // Instantiate a new order
-    public Order(int num) {
-        this.orderNum = num;
+    public Order() {
+        allOrderNums += 1;
+        this.orderNum = allOrderNums;
         this.teaBase = allTeaBases[Random.Range(0, allTeaBases.Count)];
         this.ingredients = new List<string>();
         this.toppings = new List<string>();
@@ -71,29 +74,4 @@ public class Order
         return this.toppings;
     }
     #endregion
-
-    public bool equalsDrink(Drink d) {
-        return this.GetHashCode() == d.GetHashCode();
-    }
-
-    public override bool Equals(object obj)
-    {
-        Order o = obj as Order;
-        if (o == null) {
-            return false;
-        }
-        return this.GetHashCode() == o.GetHashCode();
-    }
-
-    public override int GetHashCode()
-    {
-        int hash = 0;
-        for (int i = 0; i < this.toppings.Count; i++) {
-            hash += i + this.toppings[i].GetHashCode() * (i + 11);
-        }
-        for (int i = 0; i < this.ingredients.Count; i++) {
-            hash += i * 2 + this.ingredients[i].GetHashCode() * (i + 17);
-        }
-        return hash + this.teaBase.GetHashCode() * 13;
-    }
 }

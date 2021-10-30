@@ -70,25 +70,4 @@ public class Drink
         return this.toppingsText;
     }
     #endregion
-
-    public override bool Equals(object obj)
-    {
-        Drink o = obj as Drink;
-        if (o == null) {
-            return false;
-        }
-        return this.GetHashCode() == o.GetHashCode();
-    }
-
-    public override int GetHashCode()
-    {
-        int hash = 0;
-        for (int i = 0; i < this.toppings.Count; i++) {
-            hash += i + this.toppings[i].GetHashCode() * (i + 11);
-        }
-        for (int i = 0; i < this.ingredients.Count; i++) {
-            hash += i * 2 + this.ingredients[i].GetHashCode() * (i + 17);
-        }
-        return hash + this.teaBase.GetHashCode() * 13;
-    }
 }

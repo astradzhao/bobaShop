@@ -7,46 +7,20 @@ public class InputManager : MonoBehaviour
 {
     #region Public Variables
     public Button takeOrderBtn;
-    public GameObject orderManager;
-    public Sprite orderAlertSprite;
-    public Sprite orderTakingSprite;
-    public Sprite orderDoneSprite;
     public Text orderNumTxt;
     public Text teaBaseTxt;
     public Text ingredientsTxt;
     public Text toppingsTxt;
     #endregion
 
-    #region Private Variables
-    private Sprite currOrderSprite;
-    private OrderManager orderManagerScript;
-    #endregion
-
-    void Start() {
-        currOrderSprite = takeOrderBtn.image.sprite;
-        orderManager = GameObject.Find("OrderManager");
-        orderManagerScript = orderManager.GetComponent<OrderManager>(); 
-    }
-
-    void Update() {
-    }
     
-	public void DoSomething () {
-        if (currOrderSprite == orderAlertSprite) {
-            DisplayOrder();
-            takeOrderBtn.image.sprite = orderTakingSprite;
-        } else if (currOrderSprite == orderDoneSprite) {
-            print("Order Complete!");
-            takeOrderBtn.image.sprite = orderAlertSprite;
-        }
-        currOrderSprite = takeOrderBtn.image.sprite;
-
+	void Start () {
+		takeOrderBtn.onClick.AddListener(DisplayOrder);
 	}
 
 	void DisplayOrder() {
-		Order newOrder = new Order(orderManagerScript.totalOrderCount);
-        orderManagerScript.AddOrder(newOrder);
-        //takeOrderBtn.
+		Order newOrder = new Order();
+        SetOrderText(newOrder);
 	}
 
     void SetOrderText(Order order) {
@@ -65,4 +39,5 @@ public class InputManager : MonoBehaviour
             toppingsTxt.text += "- " + top + "\n" ;
         }
     }
+
 }
